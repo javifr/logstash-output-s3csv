@@ -314,6 +314,11 @@ class LogStash::Outputs::S3csv < LogStash::Outputs::CSV
     @codec.encode(ev)
   end
 
+  private
+  def get_value_to_csv(name, event)
+    val = event[name]
+    val.is_a?(Hash) ? LogStash::Json.dump(val) : val
+  end
 
   public
   def rotate_events_log?
