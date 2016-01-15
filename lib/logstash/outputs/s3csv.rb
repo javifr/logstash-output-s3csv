@@ -205,6 +205,9 @@ class LogStash::Outputs::S3csv < LogStash::Outputs::CSV
     # http://ruby.awsblog.com/post/Tx16QY1CI5GVBFT/Threading-with-the-AWS-SDK-for-Ruby
     AWS.eager_autoload!(AWS::S3)
 
+    @csv_options = Hash[@csv_options.map{|(k, v)|[k.to_sym, v]}]
+
+
     workers_not_supported
 
     @s3 = aws_s3_config
