@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
   s.name            = 'logstash-output-s3csv'
-  s.version         = '0.0.1'
+  s.version         = '0.0.2'
   s.licenses        = ['Apache License (2.0)']
   s.summary         = "S3 plugin ( old one core-api-v1 ) but inheriting from CSV output"
   s.description     = "This gem is a logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/plugin install gemname. This gem is not a stand-alone program"
@@ -20,10 +20,10 @@ Gem::Specification.new do |s|
   s.metadata = { "logstash_plugin" => "true", "logstash_group" => "output" }
 
   # Gem dependencies
-  s.add_runtime_dependency "logstash-core", '>= 1.4.0', '< 2.0.0'
+  s.add_runtime_dependency "logstash-core", ">= 2.0.0", "< 3.0.0"
   s.add_runtime_dependency 'logstash-mixin-aws'
-  s.add_runtime_dependency 'stud', '~> 0.0.18'
-  s.add_development_dependency 'logstash-devutils'
+  s.add_runtime_dependency 'stud', '>= 0.0.22'
+  s.add_development_dependency 'logstash-devutils', '>= 0.0.16'
   s.add_development_dependency 'logstash-input-generator'
   s.add_development_dependency 'logstash-input-stdin'
   s.add_development_dependency 'logstash-codec-line'
